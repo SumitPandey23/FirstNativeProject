@@ -44,7 +44,7 @@ const App = () => {
 return(
 <>
 <NavigationContainer>
-  <Stack.Navigator initialRouteName={'Home'}>
+  <Stack.Navigator initialRouteName={initialRoute}>
     <Stack.Screen  options={{ headerShown: false }} name="LetsStart" component={LetsStart} />
     <Stack.Screen  options={{ headerShown: false }} name="Home" component={Home} />
     <Stack.Screen options={{ headerShown: false }} name="SignIn" component={SignIn} />

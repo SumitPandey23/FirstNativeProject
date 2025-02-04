@@ -15,17 +15,15 @@ import Mail from '../assets/Mail.png';
 import User from '../assets/user.png';
 import Lock from '../assets/lock.png';
 import CornerSplash from '../assets/BottomCornerSplash.png';
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 
 const { height, width } = Dimensions.get('window');
 
 const SignUp = ({ navigation }: any) => {
-  // State variables for form fields
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // Handle signup
   const handleSignUp = async () => {
     if (!name || !email || !password) {
       Alert.alert('Error', 'Please fill all the fields');
@@ -33,7 +31,6 @@ const SignUp = ({ navigation }: any) => {
     }
 
     try {
-      // POST request to backend to create user
       const response = await axios.post('http://10.0.2.2:4000/SignUp', {
         name,
         email,
@@ -42,7 +39,7 @@ const SignUp = ({ navigation }: any) => {
 
       if (response.status === 201) {
         Alert.alert('Success', 'Account created successfully');
-        navigation.navigate('SignIn'); // Navigate to SignIn page after successful registration
+        navigation.navigate('SignIn');
       }
     } catch (error) {
       console.error('Error during signup:', error);

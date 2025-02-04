@@ -2,11 +2,12 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
-const Home = () => {
+const Home = ({navigation}:any) => {
   const removeToken= async ()=>{
     try {
       await AsyncStorage.removeItem('token');
       console.log('Token removed successfully');
+      navigation.navigate("LetsStart");
     } catch (error) {
       console.log('error removing the token',error);
     }
